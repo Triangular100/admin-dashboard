@@ -1,10 +1,28 @@
+:root {
+    --main-font-size: 1.2rem;
+    --main-icon-height: 1.3rem;
+    --logo-font-size: 1.5rem;
+    --logo-icon-height: 2.5rem;
+}
+
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body,
 .container {
     min-height: 100vh;
+}
+
+/* 
+    Reset default styles
+*/
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* 
@@ -21,9 +39,17 @@ body,
 }
 
 .nav {
-    width: 15rem;
     grid-area: nav;
     background-color: #468ecd;
+    color: white;
+
+    display: grid;
+    align-content: start;
+    gap: 2.5rem;
+
+    padding-left: 1.1rem;
+    padding-top: 1.5rem;
+    padding-right: 2.5rem;
 }
 
 .header {
@@ -37,6 +63,43 @@ body,
 }
 
 img {
-    height: 2rem;
-    width: 2rem;
+    height: 4rem;
+    width: 4rem;
+}
+
+
+/* 
+    Navigation
+*/
+
+.nav-group {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.nav-item {
+    display: grid;
+    grid-template-columns: var(--logo-icon-height) 1fr;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: var(--main-font-size);
+}
+
+.nav-item img {
+    justify-self: center;
+    height: var(--main-icon-height);
+}
+
+.nav-item.logo {
+    font-size: var(--logo-font-size);
+    font-weight: bold;
+}
+
+.nav-item.logo img {
+    height: var(--logo-icon-height);
+}
+
+.nav-item:hover {
+    text-decoration: underline;
 }
