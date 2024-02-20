@@ -35,3 +35,8 @@ body,
     grid-area: content;
     background-color: #e2e7ee;
 }
+
+img {
+    height: 2rem;
+    width: 2rem;
+}
