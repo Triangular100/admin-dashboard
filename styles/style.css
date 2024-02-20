@@ -1,3 +1,37 @@
 * {
     margin: 0;
 }
+
+body,
+.container {
+    min-height: 100vh;
+}
+
+/* 
+    Overall page layout
+*/
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "nav header"
+        "nav content";
+}
+
+.nav {
+    width: 15rem;
+    grid-area: nav;
+    background-color: #468ecd;
+}
+
+.header {
+    height: 10rem;
+    grid-area: header;
+}
+
+.content {
+    grid-area: content;
+    background-color: #e2e7ee;
+}
