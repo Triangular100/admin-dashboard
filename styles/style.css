@@ -15,7 +15,7 @@
 
 body,
 .container {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 
@@ -44,11 +44,6 @@ button {
 a {
     text-decoration: none;
     color: inherit;
-}
-
-img {
-    height: 4rem;
-    width: 4rem;
 }
 
 
@@ -91,10 +86,20 @@ img {
 .content {
     grid-area: content;
     background-color: #e2e7ee;
+
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "project announcement"
+        "project trending";
+
+    padding-top: 1rem;
+    overflow-y: scroll;
 }
 
 
-/* 
+/*
     Navigation
 */
 
@@ -219,4 +224,136 @@ img {
     min-width: 7ch;
     height: 40%;
     cursor: pointer;
+}
+
+
+/* 
+    Content
+*/
+
+.content-title {
+    font-size: var(--main-font-size);
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.projects-container {
+    grid-area: project;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-rows: max-content minmax(0, 1fr);
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    border-left: 7px solid #e6b44b;
+    border-radius: 10px;
+
+    padding: 1.5rem;
+
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+    gap: 5px;
+}
+
+.project-card .project-title {
+    font-weight: bold;
+}
+
+.project-card .project-actions {
+    justify-self: end;
+    align-self: end;
+
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+.project-card img {
+    width: var(--main-icon-height);
+    height: var(--main-icon-height);
+    cursor: pointer;
+}
+
+.announcement-container {
+    grid-area: announcement;
+    padding: 1rem;
+}
+
+.announcement-cards,
+.trending-cards {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    display: grid;
+}
+
+.announcement-card {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.announcement-card:first-child {
+    padding-top: 0;
+}
+
+.announcement-card:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.announcement-card .announcement-title {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.announcement-card .announcement-text {
+    font-size: 0.8rem;
+}
+
+.trending-container {
+    grid-area: trending;
+    padding: 1rem;
+
+    align-self: end;
+}
+
+.trending-cards {
+    gap: 1.6rem;
+}
+
+.trending-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "trending-profile trending-username"
+        "trending-profile trending-project";
+
+    justify-content: start;
+    column-gap: 1.5rem;
+}
+
+.trending-card .trending-profile {
+    grid-area: trending-profile;
+    height: var(--header-profile-icon-height);
+    width: var(--header-profile-icon-height);
+    border-radius: 50%;
+}
+
+.trending-card .trending-username {
+    font-weight: bold;
+    grid-area: trending-username;
+}
+
+.trending-card .trending-project {
+    grid-area: trending-project;
 }
